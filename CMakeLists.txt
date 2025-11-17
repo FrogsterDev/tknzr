@@ -46,6 +46,13 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tknzrConfig.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/tknzr
 )
 
+# --- Examples ---
+option(BUILD_EXAMPLES "Build examples" ON)
+if(BUILD_EXAMPLES)
+    add_executable(example_basic_usage examples/basic_usage.cpp)
+    target_link_libraries(example_basic_usage PRIVATE tknzr::tknzr)
+endif()
+
 # --- Tests ---
 option(BUILD_TESTS "Build tests" ON)
 if(BUILD_TESTS)
